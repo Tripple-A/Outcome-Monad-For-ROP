@@ -3,7 +3,8 @@ require_relative '../app/app'
 describe Lunch do
   let(:meal) { 'Pizza' }
   let(:address) { 'London' }
-  subject { Lunch.new(address:, meal:).order }
+  let(:card_number) { '456781234' }
+  subject { Lunch.new(address:, meal:, card_number:).order }
   describe '#order' do
     context 'when the city and meal are valid' do
       it 'delivers successfully' do
@@ -21,6 +22,20 @@ describe Lunch do
       let(:address) { 'Abuja' }
       it 'fails' do
         expect(subject).to eq('Invalid city')
+      end
+    end
+
+    context 'when the city is not valid' do
+      let(:address) { 'Abuja' }
+      it 'fails' do
+        expect(subject).to eq('Invalid city')
+      end
+    end
+
+    context 'when the card number is not valid' do
+      let(:card_number) { '4567' }
+      it 'fails' do
+        expect(subject).to eq('Invalid card')
       end
     end
   end
