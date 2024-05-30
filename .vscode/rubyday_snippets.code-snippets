@@ -1,0 +1,57 @@
+{
+	// Place your RubyDay workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"outcome module": {
+		"scope": "ruby",
+		"prefix": "outcome_module",
+		"body": [
+			"module Outcome",
+			"end",
+		],
+		"description": "create the outcome module"
+	},
+	"success_class": {
+		"scope": "ruby",
+		"prefix": "success_class",
+		"body": [
+			"module Outcome",
+			"class Success < T::Struct",
+			"extend T::Sig",
+			"const :value, T.untyped",
+			"end",
+			"end"
+		],
+		"description": "create the success class"
+	},
+	"outcome_methods": {
+		"scope": "ruby",
+		"prefix": "outcome_methods",
+		"body": [
+			"def self.success",
+			"end",
+			"def self.failure",
+			"end",
+		],
+		"description": "create the outcome type methods"
+	},
+	"otcome_type_class": {
+		"scope": "ruby",
+		"prefix": "outcome_type_class",
+		"body": [
+			"# typed: true",
+			"module Outcome",
+			"class OutcomeType",
+			"extend T::Sig",
+			"def initialize(obj)",
+			"@obj = obj",
+			"end",
+			"end",
+			"end"
+		]
+	}
+}

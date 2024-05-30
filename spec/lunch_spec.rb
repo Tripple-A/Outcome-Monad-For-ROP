@@ -6,7 +6,7 @@ describe Lunch do
   let(:card_number) { '456781234' }
   subject { Lunch.new(address:, meal:, card_number:).order }
   describe '#order' do
-    context 'when the city and meal are valid' do
+    context 'when the city, meal and card number are valid' do
       it 'delivers successfully' do
         expect(subject).to eq('Pizza succesfully dispatched to London')
       end
