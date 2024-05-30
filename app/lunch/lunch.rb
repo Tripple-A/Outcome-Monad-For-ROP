@@ -13,9 +13,10 @@ class Lunch
 
   def order
     address_is_valid?.bind do |address|
-      meal_is_available?.bind do |meal|
+      meal_is_available?.map { |meal| add_promo(meal) }
+                        .bind do |promo_meal|
         payment_is_successful?.bind do |_card_number|
-          Outcome.success("#{meal} succesfully dispatched to #{address}")
+          Outcome.success("#{promo_meal} succesfully dispatched to #{address}")
         end
       end
     end
@@ -34,5 +35,9 @@ class Lunch
   def payment_is_successful?
     # call an external service to make payment
     @card_number.end_with?('1234') ? Outcome.success(@card_number) : Outcome.forbidden
+  end
+
+  def add_promo(meal)
+    "#{meal} with a piece of chicken"
   end
 end

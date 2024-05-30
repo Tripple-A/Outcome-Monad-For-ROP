@@ -9,6 +9,7 @@ describe Lunch do
     context 'when the city, meal and card are valid' do
       it 'delivers successfully' do
         expect(subject.success?).to be(true)
+        expect(subject.unwrap!).to eq('Pizza with a piece of chicken succesfully dispatched to London')
       end
     end
     context 'when the meal is not valid' do
@@ -31,6 +32,7 @@ describe Lunch do
       it 'fails' do
         expect(subject.failure?).to be(true)
         expect(subject.error_type).to eq(Outcome::ErrorType::Forbidden)
+        expect { subject.unwrap! }.to raise_error(Outcome::UnwrapError)
       end
     end
   end

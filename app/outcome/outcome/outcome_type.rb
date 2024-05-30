@@ -27,7 +27,20 @@ module Outcome
     def error_type
       return nil if success?
 
-      @obj.type
+      T.cast(@obj, Failure).type
+    end
+
+    def map(&_block)
+      return OutcomeType.new(@obj) unless success?
+
+      value = yield T.cast(@obj, Success).value
+      Outcome.success(value)
+    end
+
+    def unwrap!
+      return T.cast(@obj, Success).value if success?
+
+      raise UnwrapError, T.cast(@obj, Failure)
     end
   end
 end
