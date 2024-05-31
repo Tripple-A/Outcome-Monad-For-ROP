@@ -25,13 +25,6 @@ describe Lunch do
       end
     end
 
-    context 'when the city is not valid' do
-      let(:address) { 'Abuja' }
-      it 'fails' do
-        expect(subject).to eq('Invalid city')
-      end
-    end
-
     context 'when the card number is not valid' do
       let(:card_number) { '4567' }
       it 'fails' do

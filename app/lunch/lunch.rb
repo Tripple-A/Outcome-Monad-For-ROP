@@ -2,7 +2,7 @@
 
 class Lunch
   extend T::Sig
-  VALID_CITIES = %w[London Paris Berlin].freeze
+  VALID_CITIES = %w[London Paris Verona].freeze
   AVAILABLE_MEALS = %w[Pizza Pasta].freeze
 
   def initialize(address:, meal:, card_number:)
