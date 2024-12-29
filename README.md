@@ -1,5 +1,5 @@
 ## Outcome-Monad-For-ROP
-This repository was created for the talk "Monads: Exploring Railway Oriented Programming in Ruby", delivered at the 11th edition of RubyDay in Verona, Italy on May 31st 2024.
+This repository was created for the talk ["Monads: Exploring Railway Oriented Programming in Ruby"](https://www.youtube.com/watch?v=Tb7mQ2d7HPA&t=2s), delivered at the 11th edition of RubyDay in Verona, Italy on May 31st 2024.
 
 It shows the basics of creating a monad with success and failure types to implement Railway Oriented Programming in Ruby. It also introduces different error types to handle expected errors, making testing even more streamlined.
 
